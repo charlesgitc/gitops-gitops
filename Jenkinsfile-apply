@@ -7,8 +7,7 @@ pipeline {
   }
   agent {
     node {
-         label 'nodejs'
-
+      label 'nodejs'
     }
   }
   stages {
@@ -29,6 +28,7 @@ pipeline {
     stage ('Verify test user') {
       when {
         branch 'master'
+      }
       steps {
         sh 'oc login -u testuser -p redhat123 --insecure-skip-tls-verify \
 https://kubernetes.default.svc:443'
